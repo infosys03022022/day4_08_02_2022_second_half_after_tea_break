@@ -1,0 +1,89 @@
+So in OOPS concept we have features of OOPs:-
+1) Encapsulation
+2) Abstraction
+3) Inheritance
+4) Polymorphism
+
+Encapsulation:- Encapsulation is enclosing/wrapping the data and methods which are working on the data 
+in a unit or capsule which is called as class and then deciding which member we should hide 
+and which member we should keep exposed. So we hide the member by declaring them as private
+we expose the members declaring them as public.
+
+So encapsulation is achieved through private access specifier because of which data is not 
+accessible outside the class.
+
+-----------------------------------------------------------------------------------------------
+Abstraction:- Hiding the implemention of the methods or actions and keeping only the requirement.
+
+Data.java
+
+    public class Data {
+     private int num1;
+     private int num2;
+
+     public void setData(){
+    //  num1=10;
+    //  num2=20;
+  // Requirement changed and you are being asked to enter the data from user
+      Scanner scan=new Scanner(System.in);
+      System.out.println("Enter the value of num1");
+      num1=scan.nextInt();
+      System.out.println("Enter the value for num2");
+      num2=scan.nextInt();
+     }
+
+     public void dispData() {
+   //  System.out.println(num1);
+   //  System.out.println(num2);
+    System.out.println(num1+"\n"+num2);
+     }     
+
+
+     }
+Main.java
+  
+    public class Main {
+     public static void main(String args[]) {
+     Data data=new Data();
+     data.setData(); // This main method within Main class is not aware of how setData in 
+     // is implemented
+     data.dispData();
+     }
+   }
+------------------------------------------------
+
+Q After changing the implementation of the code in the class Data , are we making any 
+changes in the Main class and within main method ?
+ans: No .... This is because of abstraction. If abstraction is not there so what is the 
+disadvantage.
+
+  public class Data {
+     public int num1;
+     public int num2;
+
+     
+     }     
+
+
+     }
+Main.java
+  
+    public class Main {
+     public static void main(String args[]) {
+     Data data=new Data();
+    /* data.num1=10;
+     data.num2=20;
+     System.out.println(num1);
+     System.out.println(num2); */
+  
+// If the plan changes
+    Scanner scan=new Scanner(System.in);
+    System.out.println("Enter the num1);
+    data.num1=scan.nextInt();
+    System.out.println("Enter the num2);
+    data.num2=scan.nextInt();
+    System.out.println(num1+"\t"+num1);       
+
+     }
+   }
+------------------------------------------------------------------------------------------------------ 
